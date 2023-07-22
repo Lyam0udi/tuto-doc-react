@@ -1,18 +1,28 @@
 import './App.css';
 
+
+// Variables
 const user = {
   name: 'Hedy Lamarr',
   imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
   imageSize: 90,
 };
 
+const products = [
+  { title: 'Cabbage', isFruit: false, id: 1 },
+  { title: 'Garlic', isFruit: false, id: 2 },
+  { title: 'Apple', isFruit: true, id: 3 },
+];
+
+
+// functions 
 function MyButton() {
   return (
       <button>
         This is the button of a component nested.
       </button>
   );
-}
+};
 
 function AddingCSSReact () {
   return (
@@ -32,6 +42,34 @@ function AddingCSSReact () {
   )
 }
 
+function RenderingList() {
+  const listItems = products.map(product =>
+    <li
+      key={product.id}
+      style={{
+        color: product.isFruit ? 'magenta' : 'darkgreen'
+      }}
+    >
+      {product.title}
+    </li>
+  );
+
+  return (
+    <ul>{listItems}</ul>
+  );
+}
+
+function MyRespondingToEventButton(){
+  function handleClick() {
+    alert('You clicked me!');
+  }
+  return (
+    <button onClick={handleClick}>
+      Click me
+    </button>
+  );
+}
+
 
 export default function App() {
   return (
@@ -42,7 +80,7 @@ export default function App() {
       <div>
         <h2>Creating and nesting components : </h2>
         <h5>React apps are made out of components.</h5>
-        <h5>Component is a piece of UI (user interface) , it is a JavaScript function that return a Markup.</h5>
+        <h5>Component is a piece of UI (user interface) , it is a JavaScript function that return a Markup/Tag.</h5>
         <h5>After declaring a component, it is possible to nest it into another one.</h5>
         <h5>The name of the component starts with a capital letter; That’s how you know it’s a React component.</h5>
         <h5> This a example of the button MyButton Nested : </h5>
@@ -68,24 +106,28 @@ export default function App() {
       <div>
         <h2>Displaying data : </h2>
         <h5>JSX lets you put markup into JavaScript. Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user.</h5>
+        <h5>You can also “escape into JavaScript” from JSX attributes, but you have to use curly braces instead of quotes.</h5>
         <h4> Must review ////  string concatenation ??? meaning</h4>
       </div>
 
       <div>
         <h2>Conditional rendering : </h2>
         <h5>In React, there is no special syntax for writing conditions. Instead, you’ll use the same techniques as you use when writing regular JavaScript code.</h5>
-        <h5>For example, you can use an if statement to conditionally include JSX.</h5>
-        <h4> Must review ////</h4>
+        <h5>For example, you can use an "if statement to conditionally include JSX" or " conditional ? operator". </h5>
+        <h5>If you do not need the else brach, you can also use a shorter logical && syntax.</h5>
       </div>
 
       <div>
         <h2>Rendering lists : </h2>
-        <h4> Must review ////</h4>
+        <h5>You will rely on JavaScript features like for loop and the array map() function to render lists of components.</h5>
+        <h5>Example of Rendering List : </h5>
+        <RenderingList />
       </div>
 
       <div>
         <h2>Responding to events : </h2>
-        <h4> Must review ////</h4>
+        <h5>You can respond to events by declaring event handler functions inside the components.</h5>
+        <MyRespondingToEventButton />
       </div>
 
       <div>
