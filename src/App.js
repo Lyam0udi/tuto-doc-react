@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 
 
 // Variables
@@ -70,6 +71,19 @@ function MyRespondingToEventButton(){
   );
 }
 
+function UpdateScreen() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
+}
 
 export default function App() {
   return (
@@ -107,7 +121,7 @@ export default function App() {
         <h2>Displaying data : </h2>
         <h5>JSX lets you put markup into JavaScript. Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user.</h5>
         <h5>You can also “escape into JavaScript” from JSX attributes, but you have to use curly braces instead of quotes.</h5>
-        <h4> Must review ////  string concatenation ??? meaning</h4>
+        <h4>string concatenation, we can use the "$" signe like in thymleaf or the "+" signe </h4>
       </div>
 
       <div>
@@ -133,6 +147,7 @@ export default function App() {
       <div>
         <h2>Updating the screen : </h2>
         <h4> Must review ////</h4>
+        <UpdateScreen />
       </div>
 
       <div>
