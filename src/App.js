@@ -147,6 +147,8 @@ export default function App() {
       <div>
         <h2>Updating the screen : </h2>
         <h4> Must review ////</h4>
+        <h4>In React, updating the screen refers to the process of re-rendering components in response to changes in the application's state or props. React uses a virtual DOM (Document Object Model) to efficiently manage and update the actual DOM.</h4>
+        <h4>Often, you’ll want your component to “remember” some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add state to your component.</h4>
         <UpdateScreen />
       </div>
 
